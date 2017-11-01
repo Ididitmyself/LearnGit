@@ -1,0 +1,56 @@
+How to use Git
+第一章
+Git简介：
+Git是目前世界上最先进的分布式版本控制系统（没有之一）。
+
+在Windows上安装Git完成后，还需要最后一步设置，在命令行输入：
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+创建版本库：
+$ mkdir learngit
+$ cd learngit
+$ pwd
+/Users/michael/learngit
+pwd命令用于显示当前目录。
+
+通过git init命令把这个目录初始化Git可以管理的仓库：
+$ git init
+Initialized empty Git repository in /Users/michael/learngit/.git/
+查看.git目录，用ls -ah命令。
+
+不要使用Windows自带的记事本编辑任何文本文件, 建议你下载Notepad++代替记事本。
+
+添加文件到Git仓库，分两步：
+第一步，使用命令git add <file>。例如：git add readme.txt
+第二步，使用命令git commit，完成。例如：git commit -m “wrote a readme file”
+
+第二章
+要随时掌握工作区的状态，使用git status命令。
+如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
+用git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别。
+版本回退：
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。git reset --hard HEAD^，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+
+穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本，如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数。
+
+要重返未来，用git reflog查看命令历史，记录你的每一次命令，以便确定要回到未来的哪个版本。
+
+读取文件内容：cat readme.txt
+
+撤销修改：
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+
+正常删除文件：rm test.txt
+命令git rm用于删除一个文件，然后执行$ git commit -m "remove test.txt"。
+
+第三章
+
+远程仓创建SSH Key：
+在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：$ ssh-keygen -t rsa -C "youremail@example.com"
+
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改
