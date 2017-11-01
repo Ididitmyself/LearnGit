@@ -43,6 +43,9 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
 
+$ git checkout -- test.txt
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+
 正常删除文件：rm test.txt
 命令git rm用于删除一个文件，然后执行$ git commit -m "remove test.txt"。
 
@@ -112,3 +115,6 @@ git remote add gitee git@gitee.com:xxxxx/xxxxx.git
 第五章
 自定义Git：
 让Git显示颜色，会让命令输出看起来更醒目：$ git config --global color.ui true
+
+文件忽略：
+有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示Untracked files...，有强迫症的童鞋心里肯定不爽。好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
