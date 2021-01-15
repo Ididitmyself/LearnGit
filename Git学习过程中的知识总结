@@ -1,0 +1,39 @@
+# 查看当前位置文件
+$ ls
+
+# 查看当前工作目录
+$ pwd
+
+# 清空窗口工作记录
+$ clear
+
+# 创建文件夹
+$ mkdir 文件夹名
+
+# 创建文件(linux下用touch或者vim命令创建文件)
+$ touch(vim) 文件名.后缀
+
+# 改变当前位置，cd即代表change direction
+$ cd 文件名
+
+# 在文件内初始化git（创建git仓库）
+$ git init
+
+# 查看设置
+$ git config --list
+
+# 基本信息设置
+  # 1. 设置用户名
+  $ git config --global user.name '用户名'
+
+  # 2. 设置用户名邮箱
+  $ git config --global user.email '邮箱'
+ 
+# 查看当前状态
+$ git status
+
+# 添加a1.php到暂存区
+git add a1.php
+
+# 添加a1.php到仓库
+git commit -m  '对本次提交的描述'     
