@@ -33,10 +33,20 @@ $ git config --list
 $ git status
 
 # 添加a1.php到暂存区
-git add a1.php
+$ git add a1.php
 
 # 添加a1.php到仓库
-git commit -m '对本次提交的描述'     
+$ git commit -m '对本次提交的描述'     
+
+# 添加当前目录下的所有文件到暂存区
+$ git add .
+
+# 将目录下以 .c 结尾的文件提交到仓库中
+$ git add *.c
+
+# 使用 -s 参数来获得git status的简短的输出结果
+$ git status -s
+# AM 状态的意思是这个文件在我们将它添加到缓存之后又有改动。
 
 # 删除文件
   # 1.第一步：删除本地文件命令
@@ -60,3 +70,7 @@ $ git push
 
 # 访问网站
 https://用户名.github.io
+
+# git status中文文件名编码问题解决方案
+# 通过将git配置变量 core.quotepath 设置为false，就可以解决中文文件名称在这些Git命令输出中的显示问题
+$ git config --global core.quotepath false
