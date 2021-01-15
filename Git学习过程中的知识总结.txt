@@ -36,4 +36,20 @@ $ git status
 git add a1.php
 
 # 添加a1.php到仓库
-git commit -m  '对本次提交的描述'     
+git commit -m '对本次提交的描述'     
+
+# 删除文件
+  # 1.第一步：删除本地文件命令
+  $ rm -rf 文件名
+
+  # 2. 第二步：从Git中删除文件
+  $ git rm 文件名
+  
+  # 3.第三步：提交操作
+  $ git commit -m '提交描述'
+
+### 以上为Git本地操作，接下来为Git远程操作 ###
+
+# Fork即克隆
+$ git clone 仓库地址
+
