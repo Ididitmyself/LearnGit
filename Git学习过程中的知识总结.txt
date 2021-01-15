@@ -53,3 +53,10 @@ git commit -m '对本次提交的描述'
 # Fork即克隆
 $ git clone 仓库地址
 
+# 将本地仓库同步到git远程仓库中
+$ git push
+
+### 搭建个人网站(目前不做了解) ###
+
+# 访问网站
+https://用户名.github.io
