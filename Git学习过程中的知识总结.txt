@@ -74,3 +74,6 @@ https://用户名.github.io
 # git status中文文件名编码问题解决方案
 # 通过将git配置变量 core.quotepath 设置为false，就可以解决中文文件名称在这些Git命令输出中的显示问题
 $ git config --global core.quotepath false
+
+# 使用git提交到github,每次都要输入用户名和密码的解决方法
+https://www.cnblogs.com/sky6862/p/7992736.html
